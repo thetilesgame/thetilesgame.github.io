@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.the.tiles.game",
+    "sha256_cert_fingerprints":
+    ["09:8F:3E:DB:F8:7A:13:4A:50:FD:1B:23:2B:BA:EB:E0:A5:13:C9:43:D0:86:B5:C3:11:45:95:A9:5A:A9:DF:35",
+    "31:DC:D1:3C:09:48:F4:EE:BF:00:8B:A5:A2:9D:C2:0B:17:71:2C:5C:B2:59:12:3F:82:5C:89:D0:41:05:55:CE"]
+  }
+}]
