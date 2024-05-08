@@ -1,0 +1,19 @@
+{
+   "applinks":{
+      "apps":[
+      ],
+      "details":[
+         {
+            "appIDs":[
+               "67RV6B8R36.com.the.tiles.game"
+            ],
+            "components":[
+               {
+                  "/":"/gift",
+                  "comment":"Matches URL with a path /gift"
+               }
+            ]
+         }
+      ]
+   }
+}
