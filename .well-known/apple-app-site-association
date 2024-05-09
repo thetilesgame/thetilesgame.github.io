@@ -9,7 +9,7 @@
             ],
             "components":[
                {
-                  "/":"/gift",
+                  "/":"/gift/*",
                   "comment":"Matches URL with a path /gift"
                }
             ]
