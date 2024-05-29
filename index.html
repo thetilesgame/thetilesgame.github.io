@@ -18,6 +18,7 @@
 		<link rel="stylesheet" href="assets/main.css" />
 		<noscript><link rel="stylesheet" href="assets/noscript.css" /></noscript>
 		<script async src="//www.googletagmanager.com/gtag/js?id=G-8D3XEQ1QL8"></script>
+		<script type="text/javascript" src="resources/js/redirect.js"></script>
 		<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-8D3XEQ1QL8', { 'send_page_view': false, 'anonymize_ip': true });gtag('event', 'page_view', { 'page_title': 'Tiles - Puzzle With Faces', 'page_location': 'https://thetilesgame.com' });</script>
 	</head>
 	<body class="is-loading">
@@ -139,5 +140,29 @@
 			</div>
 		</div>
 		<script src="assets/main.js"></script>
+		<script>
+
+		    // You have the whole queryString ready for you here in a key->value form.
+		    // In the edge case where there are multiple values, the value is an array.
+		    var qs = AppRedirect.queryString;
+		
+		    // Here we initiate the redirect process
+		    AppRedirect.redirect({
+		
+		        iosApp: 'twitter://post?message=' + qs['message'],
+		
+		        iosAppStore: 'https://itunes.apple.com/il/app/twitter/id6476504013?mt=8&message=' + qs['message'],
+		
+		        // For this, your app need to have category filter: android.intent.category.BROWSABLE
+		        android: {
+		            'host': 'post/?message=' + encodeURIComponent(qs['message']), // Host/path/querystring part in a custom scheme URL
+		            'scheme': 'twitter', // Scheme part in a custom scheme URL
+		            'package': 'com.the.tiles.game', // Package name in Play store
+		            'fallback': 'https://play.google.com/store/apps/details?id=com.the.tiles.game&hl=en&message=' + qs['message']
+		        }
+		
+		    });
+		
+		</script>
 	</body>
 </html>
