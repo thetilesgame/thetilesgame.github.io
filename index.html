@@ -149,16 +149,16 @@
 		    // Here we initiate the redirect process
 		    AppRedirect.redirect({
 		
-		        iosApp: 'https://thetilesgame.com/?gift=' + qs['message'],
+		        iosApp: 'https://thetilesgame.com/?message=' + qs['message'],
 		
-		        iosAppStore: 'https://apps.apple.com/ua/app/tiles-puzzle-with-faces/id6479700321?mt=8&gift=' + qs['message'],
+		        iosAppStore: 'https://apps.apple.com/ua/app/tiles-puzzle-with-faces/id6479700321?mt=8&message=' + qs['message'],
 		
 		        // For this, your app need to have category filter: android.intent.category.BROWSABLE
 		        android: {
-		            'host': '/?gift=' + encodeURIComponent(qs['message']), // Host/path/querystring part in a custom scheme URL
+		            'host': '/?message=' + encodeURIComponent(qs['message']), // Host/path/querystring part in a custom scheme URL
 		            'scheme': 'https://thetilesgame.com', // Scheme part in a custom scheme URL
 		            'package': 'com.the.tiles.game', // Package name in Play store
-		            'fallback': 'https://play.google.com/store/apps/details?id=com.the.tiles.game&hl=en&gift=' + qs['message']
+		            'fallback': 'https://play.google.com/store/apps/details?id=com.the.tiles.game&hl=en&message=' + qs['message']
 		        }
 		
 		    });
