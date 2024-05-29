@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <script type="text/javascript" src="redirect.js"></script>
+    </head>
+<body>
+    <script>
+
+        // You have the whole queryString ready for you here in a key->value form.
+        // In the edge case where there are multiple values, the value is an array.
+        var qs = AppRedirect.queryString;
+    
+        // Here we initiate the redirect process
+        AppRedirect.redirect({
+    
+            iosApp: 'https://thetilesgame.com/?message=' + qs['message'],
+    
+            iosAppStore: 'https://apps.apple.com/ua/app/tiles-puzzle-with-faces/id6479700321?mt=8&message=' + qs['message'],
+    
+            // For this, your app need to have category filter: android.intent.category.BROWSABLE
+            android: {
+                'host': '/?message=' + encodeURIComponent(qs['message']), // Host/path/querystring part in a custom scheme URL
+                'scheme': 'https://thetilesgame.com', // Scheme part in a custom scheme URL
+                'package': 'com.the.tiles.game', // Package name in Play store
+                'fallback': 'https://play.google.com/store/apps/details?id=com.the.tiles.game&hl=en&message=' + qs['message']
+            }
+    
+        });
+    
+    </script>
+</body>
+</html>
