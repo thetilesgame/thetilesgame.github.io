@@ -1,10 +1,26 @@
-// Written by Daniel Cohen Gindi
-// danielgindi@gmail.com
-// http://github.com/danielgindi/app-redirect
-
 (function () {
     var queryString = {},
         browserMovedToBackground = false;
+
+    // Parse the query string so we can take individual query string params
+    (function (search) {
+        search = (search || '').split(/[\&\?]/g);
+        for (var i = 0, count = search.length; i < count; i++) {
+            if (!search[i]) continue;
+            var pair = search[i].split('=');
+            queryString[pair[0]] = queryString[pair[0]] !== undefined ?
+                ([pair[1] || ''].concat(queryString[pair[0]])) : 
+                (pair[1] || '');
+        }
+    })(window.location.search);
+
+    // Listen to visibility change to prevent next url
+    window.document.addEventListener("visibilitychange", function(e) {
+        browserMovedToBackground = window.document.visibilityState === 'hidden' || window.document.visibilityState === 'unloaded';
+    });
+    window.addEventListener("blur", function(e) {
+        browserMovedToBackground = true;
+    });
 
     var AppRedirect = {
         /** 
@@ -73,10 +89,15 @@
                 } else {
                     window.location = intentUrl;
                 }
-            } else if(hasOverallFallback) {
+            } else if (hasOverallFallback) {
                 window.location = options.overallFallback;
             } else {
-                console.log('Unknown platform and no overallFallback URL, nothing to do');
+                // Default fallback for desktop users
+                if (/Mobi|Android|iPhone|iPad|iPod|Windows Phone|webOS/i.test(navigator.userAgent) === false) {
+                    window.location = options.desktopFallback;
+                } else {
+                    console.log('Unknown platform and no overallFallback URL, nothing to do');
+                }
             }
         }
     };
