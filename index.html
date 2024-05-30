@@ -19,6 +19,40 @@
 		<noscript><link rel="stylesheet" href="assets/noscript.css" /></noscript>
 		<script async src="//www.googletagmanager.com/gtag/js?id=G-8D3XEQ1QL8"></script>
 		<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-8D3XEQ1QL8', { 'send_page_view': false, 'anonymize_ip': true });gtag('event', 'page_view', { 'page_title': 'Tiles - Puzzle With Faces', 'page_location': 'https://thetilesgame.com' });</script>
+		
+		<script>
+			function getGiftIdFromUrl() {
+				const urlParams = new URLSearchParams(window.location.pathname.split('/')[2]);
+				return urlParams.get('gift');
+			}
+	
+			function redirectToStore(giftId) {
+				const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+				
+				// Check if the device is iOS
+				if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+					window.location.href = `https://www.google.com`;
+				} 
+				// Check if the device is Android
+				else if (/android/i.test(userAgent)) {
+					window.location.href = `https://www.google.com`;
+				} 
+				// Fallback if not iOS or Android
+				else {
+					alert('Unsupported device. Please open this link on an iOS or Android device.');
+				}
+			}
+	
+			document.addEventListener('DOMContentLoaded', () => {
+				const giftId = getGiftIdFromUrl();
+				if (giftId) {
+					redirectToStore(giftId);
+				} else {
+					alert('Gift ID not found in URL.');
+				}
+			});
+		</script>
+
 	</head>
 
 	<body class="is-loading">

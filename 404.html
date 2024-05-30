@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -12,15 +12,15 @@
             if (path.startsWith('/gift/')) {
                 var code = path.split('/gift/')[1];
                 AppRedirect.redirect({
-                    iosApp: 'https://www.google.com/',
-                    iosAppStore: 'https://www.google.com/',
+                    iosApp: 'https://thetilesgame.com/?message=' + code,
+                    iosAppStore: 'https://apps.apple.com/ua/app/tiles-puzzle-with-faces/id6479700321?mt=8&message=' + code,
                     android: {
-                        'host': '/',
-                        'scheme': 'https://www.google.com/',
+                        'host': '/?message=' + encodeURIComponent(code),
+                        'scheme': 'https://thetilesgame.com',
                         'package': 'com.the.tiles.game',
-                        'fallback': 'https://www.google.com/'
+                        'fallback': 'https://play.google.com/store/apps/details?id=com.the.tiles.game&hl=en&message=' + code
                     },
-                    desktopFallback: 'https://www.google.com/'
+                    desktopFallback: 'https://apps.apple.com/ua/app/tiles-puzzle-with-faces/id6479700321?mt=8&message=' + code
                 });
             } else {
                 document.body.innerHTML = '<h1>404 - Page Not Found</h1>';
@@ -28,4 +28,4 @@
         })();
     </script>
 </body>
-</html>
+</html> -->
