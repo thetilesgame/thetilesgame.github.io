@@ -18,11 +18,11 @@
 
             // Check if the device is iOS
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                window.location.href = `https://apps.apple.com/ua/app/tiles-puzzle-with-faces/id6479700321?gift=${giftId}`;
+                window.location.href = `https://itunes.apple.com/il/app/tiles-puzzle-with-faces/id6479700321?mt=8&message=${giftId}`;
             }
             // Check if the device is Android
             else if (/android/i.test(userAgent)) {
-                window.location.href = `https://play.google.com/store/apps/details?id=com.the.tiles.game&gift=${giftId}`;
+                window.location.href = `https://play.google.com/store/apps/details?id=com.twitter.android&hl=en&message=${giftId}`;
             }
             // Fallback if not iOS or Android
             else {
