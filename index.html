@@ -1,46 +1,47 @@
 <!DOCTYPE HTML>
 <html lang="en">
-	<head>
-		<title>Tiles - Puzzle With Faces</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1" />
-		<meta name="color-scheme" content="light only" />
-		<meta name="description" content="Play this fun puzzle game where you combine pictures of people in order to earn points. You can even create a custom game using your own face!" />
-		<meta property="og:site_name" content="Tiles - Puzzle With Faces" />
-		<meta property="og:title" content="Tiles - Puzzle With Faces" />
-		<meta property="og:type" content="website" />
-		<meta property="og:description" content="Play this fun puzzle game where you combine pictures of people in order to earn points. You can even create a custom game using your own face!" />
-		<meta name="name" content="Puzzle" />
-		<meta name="name" content="Tiles" />
-		<link href="https://fonts.googleapis.com/css2?display=swap&family=Inter:ital,wght@0,300;0,600;1,300;1,600" rel="stylesheet" type="text/css" />
-		<link rel="icon" type="image/png" href="assets/images/favicon.png" />
-		<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
-		<link rel="stylesheet" href="assets/main.css" />
-		<noscript><link rel="stylesheet" href="assets/noscript.css" /></noscript>
-		<script async src="//www.googletagmanager.com/gtag/js?id=G-8D3XEQ1QL8"></script>
-		<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-8D3XEQ1QL8', { 'send_page_view': false, 'anonymize_ip': true });gtag('event', 'page_view', { 'page_title': 'Tiles - Puzzle With Faces', 'page_location': 'https://thetilesgame.com' });</script>
-		<script type="text/javascript" src="gift/redirect.js"></script>
-		<script type="text/javascript">
-			(function () {
-				var path = window.location.pathname;
-				if (path.startsWith('/gift/')) {
-					var code = path.split('/gift/')[1];
-					AppRedirect.redirect({
-						iosApp: 'https://thetilesgame.com/?message=' + code,
-						iosAppStore: 'https://apps.apple.com/ua/app/tiles-puzzle-with-faces/id6479700321?mt=8&message=' + code,
-						android: {
-							'host': '/?message=' + encodeURIComponent(code),
-							'scheme': 'https://thetilesgame.com',
-							'package': 'com.the.tiles.game',
-							'fallback': 'https://play.google.com/store/apps/details?id=com.the.tiles.game&hl=en&message=' + code
-						},
-						// Desktop fallback URLs
-						desktopFallback: 'https://thetilesgame.com/'
-					});
-				}
-			})();
-		</script>
-	</head>
+<head>
+    <title>Tiles - Puzzle With Faces</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light only" />
+    <meta name="description" content="Play this fun puzzle game where you combine pictures of people in order to earn points. You can even create a custom game using your own face!" />
+    <meta property="og:site_name" content="Tiles - Puzzle With Faces" />
+    <meta property="og:title" content="Tiles - Puzzle With Faces" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Play this fun puzzle game where you combine pictures of people in order to earn points. You can even create a custom game using your own face!" />
+    <meta name="name" content="Puzzle" />
+    <meta name="name" content="Tiles" />
+    <link href="https://fonts.googleapis.com/css2?display=swap&family=Inter:ital,wght@0,300;0,600;1,300;1,600" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png" />
+    <link rel="stylesheet" href="assets/main.css" />
+    <noscript><link rel="stylesheet" href="assets/noscript.css" /></noscript>
+    <script async src="//www.googletagmanager.com/gtag/js?id=G-8D3XEQ1QL8"></script>
+    <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-8D3XEQ1QL8', { 'send_page_view': false, 'anonymize_ip': true });gtag('event', 'page_view', { 'page_title': 'Tiles - Puzzle With Faces', 'page_location': 'https://thetilesgame.com' });</script>
+
+    <!-- Add the redirect script here -->
+    <script type="text/javascript" src="assets/redirect.js"></script>
+    <script type="text/javascript">
+        (function () {
+            var path = window.location.pathname;
+            if (path.startsWith('/gift/')) {
+                var code = path.split('/gift/')[1];
+                AppRedirect.redirect({
+                    iosApp: 'https://thetilesgame.com/?message=' + code,
+                    iosAppStore: 'https://apps.apple.com/ua/app/tiles-puzzle-with-faces/id6479700321?mt=8&message=' + code,
+                    android: {
+                        'host': '/?message=' + encodeURIComponent(code),
+                        'scheme': 'https://thetilesgame.com',
+                        'package': 'com.the.tiles.game',
+                        'fallback': 'https://play.google.com/store/apps/details?id=com.the.tiles.game&hl=en&message=' + code
+                    },
+                    desktopFallback: 'https://apps.apple.com/ua/app/tiles-puzzle-with-faces/id6479700321?mt=8&message=' + code
+                });
+            }
+        })();
+    </script>
+</head>
 
 	<body class="is-loading">
 		<div id="wrapper">
