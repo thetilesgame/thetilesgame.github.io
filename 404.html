@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        function getGiftIdFromPath() {
+            const pathParts = window.location.pathname.split('/');
+            if (pathParts[1] === 'gift' && pathParts.length === 3) {
+                return pathParts[2];
+            }
+            return null;
+        }
+
+        function redirectToStore(giftId) {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // Check if the device is iOS
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = `https://apps.apple.com/app/idYOUR_APP_ID?gift=${giftId}`;
+            }
+            // Check if the device is Android
+            else if (/android/i.test(userAgent)) {
+                window.location.href = `https://play.google.com/store/apps/details?id=YOUR_APP_PACKAGE&gift=${giftId}`;
+            }
+            // Fallback if not iOS or Android
+            else {
+                window.location.href = `www.google.com`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const giftId = getGiftIdFromPath();
+            if (giftId) {
+                redirectToStore(giftId);
+            } else {
+                document.body.innerHTML = '<h1>Page not found</h1>';
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Redirecting...</h1>
+</body>
+</html>
