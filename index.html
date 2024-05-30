@@ -20,10 +20,10 @@
 		<script async src="//www.googletagmanager.com/gtag/js?id=G-8D3XEQ1QL8"></script>
 		<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-8D3XEQ1QL8', { 'send_page_view': false, 'anonymize_ip': true });gtag('event', 'page_view', { 'page_title': 'Tiles - Puzzle With Faces', 'page_location': 'https://thetilesgame.com' });</script>
 		
-		<!-- <script>
+		<script>
 			function getGiftIdFromUrl() {
-				const urlParams = new URLSearchParams(window.location.pathname.split('/')[2]);
-				return urlParams.get('gift');
+				const pathParts = window.location.pathname.split('/');
+				return pathParts.length > 2 ? pathParts[2] : null;
 			}
 	
 			function redirectToStore(giftId) {
@@ -31,15 +31,15 @@
 				
 				// Check if the device is iOS
 				if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-					window.location.href = `https://www.google.com`;
+					window.location.href = `https://apps.apple.com/app/id6476504013?gift=${giftId}`;
 				} 
 				// Check if the device is Android
 				else if (/android/i.test(userAgent)) {
-					window.location.href = `https://www.google.com`;
+					window.location.href = `https://play.google.com/store/apps/details?id=com.the.tiles.game&gift=${giftId}`;
 				} 
-				// Fallback if not iOS or Android
+				// Fallback
 				else {
-					alert('Unsupported device. Please open this link on an iOS or Android device.');
+					window.location.href = `https://thetilesgame.com`;
 				}
 			}
 	
@@ -48,10 +48,10 @@
 				if (giftId) {
 					redirectToStore(giftId);
 				} else {
-					alert('Gift ID not found in URL.');
+					console.log('No gift ID found in the URL path.');
 				}
 			});
-		</script> -->
+		</script>
 
 	</head>
 
