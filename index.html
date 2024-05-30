@@ -18,8 +18,30 @@
 		<link rel="stylesheet" href="assets/main.css" />
 		<noscript><link rel="stylesheet" href="assets/noscript.css" /></noscript>
 		<script async src="//www.googletagmanager.com/gtag/js?id=G-8D3XEQ1QL8"></script>
+		<script type="text/javascript" src="redirect.js"></script>
 		<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-8D3XEQ1QL8', { 'send_page_view': false, 'anonymize_ip': true });gtag('event', 'page_view', { 'page_title': 'Tiles - Puzzle With Faces', 'page_location': 'https://thetilesgame.com' });</script>
 	</head>
+
+	
+	<script type="text/javascript">
+		(function () {
+			var path = window.location.pathname;
+			if (path.startsWith('/gift/')) {
+				var code = path.split('/gift/')[1];
+				AppRedirect.redirect({
+					iosApp: 'https://thetilesgame.com/?message=' + code,
+					iosAppStore: 'https://apps.apple.com/ua/app/tiles-puzzle-with-faces/id6479700321?mt=8&message=' + code,
+					android: {
+						'host': '/?message=' + encodeURIComponent(code),
+						'scheme': 'https://thetilesgame.com',
+						'package': 'com.the.tiles.game',
+						'fallback': 'https://play.google.com/store/apps/details?id=com.the.tiles.game&hl=en&message=' + code
+					}
+				});
+			}
+		})();
+	</script>
+
 	<body class="is-loading">
 		<div id="wrapper">
 			<div id="main">
@@ -139,24 +161,5 @@
 			</div>
 		</div>
 		<script src="assets/main.js"></script>
-		<script type="text/javascript" src="redirect.js"></script>
-		<script type="text/javascript">
-			(function () {
-				var path = window.location.pathname;
-				if (path.startsWith('/gift/')) {
-					var code = path.split('/gift/')[1];
-					AppRedirect.redirect({
-						iosApp: 'https://thetilesgame.com/?message=' + code,
-						iosAppStore: 'https://apps.apple.com/ua/app/tiles-puzzle-with-faces/id6479700321?mt=8&message=' + code,
-						android: {
-							'host': '/?message=' + encodeURIComponent(code),
-							'scheme': 'https://thetilesgame.com',
-							'package': 'com.the.tiles.game',
-							'fallback': 'https://play.google.com/store/apps/details?id=com.the.tiles.game&hl=en&message=' + code
-						}
-					});
-				}
-			})();
-		</script>
 	</body>
 </html>
