@@ -18,15 +18,15 @@
 
             // Check if the device is iOS
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                window.location.href = `https://apps.apple.com/app/idYOUR_APP_ID?gift=${giftId}`;
+                window.location.href = `https://apps.apple.com/app/id6476504013?gift=${giftId}`;
             }
             // Check if the device is Android
             else if (/android/i.test(userAgent)) {
-                window.location.href = `https://play.google.com/store/apps/details?id=YOUR_APP_PACKAGE&gift=${giftId}`;
+                window.location.href = `https://play.google.com/store/apps/details?id=com.the.tiles.game&gift=${giftId}`;
             }
             // Fallback if not iOS or Android
             else {
-                window.location.href = `https://www.google.com`;
+                window.location.href = `https://thetilesgame.com`;
             }
         }
 
