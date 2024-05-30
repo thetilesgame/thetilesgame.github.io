@@ -22,24 +22,24 @@
 		
 		<script>
 			function getGiftIdFromUrl() {
-				const pathParts = window.location.pathname.split('/');
-				return pathParts.length > 2 ? pathParts[2] : null;
+				const urlParams = new URLSearchParams(window.location.search);
+				return urlParams.get('gift');
 			}
 	
 			function redirectToStore(giftId) {
 				const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-				
+	
 				// Check if the device is iOS
 				if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-					window.location.href = `https://apps.apple.com/app/id6476504013?gift=${giftId}`;
-				} 
+					window.location.href = `https://apps.apple.com/app/idYOUR_APP_ID?gift=${giftId}`;
+				}
 				// Check if the device is Android
 				else if (/android/i.test(userAgent)) {
-					window.location.href = `https://play.google.com/store/apps/details?id=com.the.tiles.game&gift=${giftId}`;
-				} 
-				// Fallback
+					window.location.href = `https://play.google.com/store/apps/details?id=YOUR_APP_PACKAGE&gift=${giftId}`;
+				}
+				// Fallback if not iOS or Android
 				else {
-					window.location.href = `https://thetilesgame.com`;
+					window.location.href = `https://www.google.com`;
 				}
 			}
 	
@@ -48,7 +48,7 @@
 				if (giftId) {
 					redirectToStore(giftId);
 				} else {
-					console.log('No gift ID found in the URL path.');
+					console.log('No gift ID found in the URL.');
 				}
 			});
 		</script>
