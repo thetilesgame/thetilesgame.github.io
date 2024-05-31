@@ -9,6 +9,8 @@
             const pathParts = window.location.pathname.split('/');
             if (pathParts[1] === 'gift' && pathParts.length === 3) {
                 return pathParts[2];
+            } else if (pathParts[1] === 'gift' && pathParts.length === 2) {
+                return 'default';
             }
             return null;
         }
@@ -32,8 +34,10 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             const giftId = getGiftIdFromPath();
-            if (giftId) {
+            if (giftId && giftId != 'default') {
                 redirectToStore(giftId);
+            } else if (giftId && giftId === 'default') {
+                window.location.href = `https://thetilesgame.com`;
             } else {
                 document.body.innerHTML = '<h1>Page not found</h1>';
             }
