@@ -67,8 +67,9 @@
                 const adPage = getAdPageFromPath();
                 if (adPage && adPage === 'mr-poopie-pants') {
                     redirectToStoreWithoutGift();
+                } else {
+                    document.body.innerHTML = '<h1>Page not found</h1>';
                 }
-                document.body.innerHTML = '<h1>Page not found</h1>';
             }
         });
     </script>
