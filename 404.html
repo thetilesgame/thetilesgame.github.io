@@ -15,7 +15,15 @@
             return null;
         }
 
-        function redirectToStore(giftId) {
+        function getAdPageFromPath() {
+            const pathParts = window.location.pathname.split('/');
+            if (pathParts[1] === 'mr-poopie-pants' && pathParts.length === 2) {
+                return pathParts[1];
+            }
+            return null;
+        }
+
+        function redirectToStoreWithGift(giftId) {
             const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
             // Check if the device is iOS
@@ -24,7 +32,24 @@
             }
             // Check if the device is Android
             else if (/android/i.test(userAgent)) {
-                window.location.href = `https://play.google.com/store/apps/details?id=com.twitter.android&hl=en&referrer=${giftId}`;
+                window.location.href = `https://play.google.com/store/apps/details?id=com.the.tiles.game&hl=en&referrer=https://thetilesgame.com/gift/${giftId}`;
+            }
+            // Fallback if not iOS or Android
+            else {
+                window.location.href = `https://thetilesgame.com`;
+            }
+        }
+
+        function redirectToStoreWithoutGift() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // Check if the device is iOS
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = `https://itunes.apple.com/il/app/tiles-puzzle-with-faces/id6479700321`;
+            }
+            // Check if the device is Android
+            else if (/android/i.test(userAgent)) {
+                window.location.href = `https://play.google.com/store/apps/details?id=com.the.tiles.game&hl=en`;
             }
             // Fallback if not iOS or Android
             else {
@@ -35,10 +60,14 @@
         document.addEventListener('DOMContentLoaded', () => {
             const giftId = getGiftIdFromPath();
             if (giftId && giftId != 'default') {
-                redirectToStore(giftId);
+                redirectToStoreWithGift(giftId);
             } else if (giftId && giftId === 'default') {
                 window.location.href = `https://thetilesgame.com`;
             } else {
+                const adPage = getAdPageFromPath();
+                if (adPage && adPage === 'mr-poopie-pants') {
+                    redirectToStoreWithoutGift();
+                }
                 document.body.innerHTML = '<h1>Page not found</h1>';
             }
         });
