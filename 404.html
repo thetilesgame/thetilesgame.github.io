@@ -26,10 +26,6 @@
         function redirectToStoreWithGift(giftId) {
             const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-            // Check if the device is iOS
-            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                window.location.href = `https://itunes.apple.com/il/app/tiles-puzzle-with-faces/id6479700321?mt=8&referrer=https://thetilesgame.com/gift/${giftId}`;
-            }
             // Check if the device is Android
             else if (/android/i.test(userAgent)) {
                 window.location.href = `https://play.google.com/store/apps/details?id=com.the.tiles.game&hl=en&referrer=https://thetilesgame.com/gift/${giftId}`;
